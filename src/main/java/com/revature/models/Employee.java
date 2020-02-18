@@ -62,6 +62,11 @@ public class Employee implements Serializable {
 	}
 
 	
+	public Employee(int emplId) {
+		super();
+		this.emplId = emplId;
+	}
+
 	public int getEmplId() {
 		return emplId;
 	}

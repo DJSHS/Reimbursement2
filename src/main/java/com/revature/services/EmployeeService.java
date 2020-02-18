@@ -27,11 +27,23 @@ public class EmployeeService {
 		return em.createEmpl(e);
 	}
 	
-	public int updateEmployee(Employee e) {
-		return em.updateEmpl(e);
+	public void updateEmployee(Employee e) {
+		em.updateEmpl(e);
 	}
 	
-	public int deleteEmployee(int emplId) {
-		return em.deleteEmpl(emplId);
+	public void deleteEmployee(int emplId) {
+		em.deleteEmpl(emplId);
+	}
+	
+	public Employee login(String email, String password) {
+		return em.login(email, password);
+	}
+	
+	public boolean checkUniqueEmail(String email) {
+		return em.checkEmail(email);
+	}
+	
+	public boolean checkUniquePhone(String phone) {
+		return em.checkPhone(phone);
 	}
 }

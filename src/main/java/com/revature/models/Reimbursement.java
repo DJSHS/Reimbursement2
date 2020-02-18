@@ -44,6 +44,11 @@ public class Reimbursement implements Serializable {
 	public Reimbursement() {
 		super();
 	}
+	
+	public Reimbursement(int reimId) {
+		super();
+		this.reimId = reimId;
+	}
 
 	public Reimbursement(int reimId, double amount, String status, String result, int submitById, int resolvedById,
 			String submitDate, String resolvedDate, String description, String reason, String receipt) {

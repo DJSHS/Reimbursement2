@@ -26,4 +26,29 @@ public class EmployeeController {
 		return es.getEmployee(id);
 	}
 	
+	@PostMapping
+	public int createEmployee(@RequestBody Employee e) {
+		return es.createEmployee(e);
+	}
+	
+	@PutMapping("/{id}")
+	public void updateEmployee(@RequestBody Employee e) {
+		es.updateEmployee(e);
+	}
+	
+	@DeleteMapping("/{id}")
+	public void deleteEmployee(@PathVariable(value="id")int id) {
+		es.deleteEmployee(id);
+	}
+	
+	@PostMapping("/email")
+	public boolean checkUniqueEmail(@RequestParam("email")String email) {
+		return es.checkUniqueEmail(email);
+	}
+	
+	@PostMapping("/phone")
+	public boolean checkUniquePhone(@RequestParam("phone")String phone) {
+		return es.checkUniquePhone(phone);
+	}
+	
 }
