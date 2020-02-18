@@ -29,4 +29,34 @@ public class EmployeeDaoImpl implements EmployeeDao{
 		return empls;
 	}
 
+	@Override
+	public Employee getEmplById(int emplId) {
+		try(Session s = HibernateUtil.getSession()) {
+			String hql = "from Employee where empl_id = :id";
+			Query<Employee> p = s.createQuery(hql, Employee.class);
+			p.setParameter("id", emplId);
+			Employee e = p.getSingleResult();
+			
+			return e;
+		}
+	}
+
+	@Override
+	public int createEmpl(Employee e) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateEmpl(Employee e) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteEmpl(int emplId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

@@ -16,9 +16,22 @@ public class EmployeeService {
 	private EmployeeDaoImpl em;
 	
 	public List<Employee> getAllEmployees() {
-		List<Employee> empls = em.getAllEmpls();
-		System.out.println(empls);
-		return empls;
+		return em.getAllEmpls();
 	}
 	
+	public Employee getEmployee(int emplId) {
+		return em.getEmplById(emplId);
+	}
+	
+	public int createEmployee(Employee e) {
+		return em.createEmpl(e);
+	}
+	
+	public int updateEmployee(Employee e) {
+		return em.updateEmpl(e);
+	}
+	
+	public int deleteEmployee(int emplId) {
+		return em.deleteEmpl(emplId);
+	}
 }
