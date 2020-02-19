@@ -15,7 +15,7 @@ public class AuthenticationController {
 	private EmployeeService es;
 	
 	@PostMapping
-	public Employee login(@RequestParam("email")String email, @RequestParam("password")String password) {
-		return es.login(email, password);
+	public Employee login(@RequestBody Employee e) {
+		return es.login(e.getEmail(), e.getPassword());
 	}
 }
