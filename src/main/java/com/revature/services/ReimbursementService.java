@@ -41,4 +41,20 @@ public class ReimbursementService {
 	public void deleteReimbursementByEmpl(int emplId) {
 		re.deleteReimsByEmpl(emplId);
 	}
+	
+	public List<Reimbursement> getPendingReimbursements() {
+		return re.getPendingReims();
+	}
+	
+	public List<Reimbursement> getResolvedReimbursements() {
+		return re.getResolvedReims();
+	}
+	
+	public List<Reimbursement> getPendingReimbursementsByEmpl(int emplId) {
+		return re.getPendingReimByEmpl(emplId);
+	}
+	
+	public List<Reimbursement> getResolvedReimbursementsByEmpl(int emplId) {
+		return re.getResolvedReimByEmpl(emplId);
+	}
 }

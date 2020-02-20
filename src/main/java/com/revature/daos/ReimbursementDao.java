@@ -12,4 +12,8 @@ public interface ReimbursementDao {
 	public void updateReim(Reimbursement r);
 	public void deleteReim(int reimId);
 	public void deleteReimsByEmpl(int emplId);
+	public List<Reimbursement> getPendingReims();
+	public List<Reimbursement> getResolvedReims();
+	public List<Reimbursement> getPendingReimByEmpl(int emplId);
+	public List<Reimbursement> getResolvedReimByEmpl(int emplId);
 }

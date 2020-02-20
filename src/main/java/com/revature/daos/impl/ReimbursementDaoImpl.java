@@ -98,4 +98,62 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		}
 	}
 
+	@Override
+	public List<Reimbursement> getPendingReims() {
+		List<Reimbursement> reims = null;
+
+		try(Session s = HibernateUtil.getSession()) {
+			String hql = "from Reimbursement where status = :status";
+			Query<Reimbursement> q = s.createQuery(hql, Reimbursement.class);
+			q.setParameter("status", "pending");
+			reims = q.list();
+			
+			return reims;
+		}
+	}
+
+	@Override
+	public List<Reimbursement> getResolvedReims() {
+		List<Reimbursement> reims = null;
+
+		try(Session s = HibernateUtil.getSession()) {
+			String hql = "from Reimbursement where status = :status";
+			Query<Reimbursement> q = s.createQuery(hql, Reimbursement.class);
+			q.setParameter("status", "resolved");
+			reims = q.list();
+			
+			return reims;
+		}
+	}
+
+	@Override
+	public List<Reimbursement> getPendingReimByEmpl(int emplId) {
+		List<Reimbursement> reims = null;
+
+		try(Session s = HibernateUtil.getSession()) {
+			String hql = "from Reimbursement where submit_by = :id and status = :status";
+			Query<Reimbursement> q = s.createQuery(hql, Reimbursement.class);
+			q.setParameter("id", emplId);
+			q.setParameter("status", "pending");
+			reims = q.list();
+			
+			return reims;
+		}
+	}
+
+	@Override
+	public List<Reimbursement> getResolvedReimByEmpl(int emplId) {
+		List<Reimbursement> reims = null;
+
+		try(Session s = HibernateUtil.getSession()) {
+			String hql = "from Reimbursement where submit_by = :id and status = :status";
+			Query<Reimbursement> q = s.createQuery(hql, Reimbursement.class);
+			q.setParameter("id", emplId);
+			q.setParameter("status", "resolved");
+			reims = q.list();
+			
+			return reims;
+		}
+	}
+
 }

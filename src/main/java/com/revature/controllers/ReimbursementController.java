@@ -50,4 +50,24 @@ public class ReimbursementController {
 	public void deleteReimbursementByEmpl(@PathVariable(value="id")int id) {
 		rs.deleteReimbursementByEmpl(id);
 	}
+	
+	@GetMapping("/pending")
+	public List<Reimbursement> getPendingReimbursements() {
+		return rs.getPendingReimbursements();
+	}
+	
+	@GetMapping("/resolved")
+	public List<Reimbursement> getResolvedReimbursements() {
+		return rs.getResolvedReimbursements();
+	}
+	
+	@GetMapping("/employees/{id}/pending")
+	public List<Reimbursement> getPendingReimbursementsByEmpl(@PathVariable(value="id")int emplId) {
+		return rs.getPendingReimbursementsByEmpl(emplId);
+	}
+	
+	@GetMapping("/employees/{id}/resolved")
+	public List<Reimbursement> getResolvedReimbursementsByEmpl(@PathVariable(value="id")int emplId) {
+		return rs.getResolvedReimbursementsByEmpl(emplId);
+	}
 }
