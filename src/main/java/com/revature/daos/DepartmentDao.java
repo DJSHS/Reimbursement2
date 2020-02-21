@@ -6,4 +6,5 @@ import com.revature.models.Department;
 
 public interface DepartmentDao {
 	public List<Department> getAllDepts();
+	public Department getDeptById(int deptId);
 }

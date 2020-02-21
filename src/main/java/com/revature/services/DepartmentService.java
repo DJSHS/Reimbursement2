@@ -20,4 +20,8 @@ public class DepartmentService {
 	public List<Department> getAllDepartments() {
 		return d.getAllDepts();
 	}
+	
+	public Department getDepartmentById(int deptId) {
+		return d.getDeptById(deptId);
+	}
 }

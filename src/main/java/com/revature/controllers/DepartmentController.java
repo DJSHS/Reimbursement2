@@ -20,4 +20,9 @@ public class DepartmentController {
 	public List<Department> getAllDepartments() {
 		return ds.getAllDepartments();
 	}
+	
+	@GetMapping("/{id}")
+	public Department getOneEmployee(@PathVariable(value="id")int id) {
+		return ds.getDepartmentById(id);
+	}
 }

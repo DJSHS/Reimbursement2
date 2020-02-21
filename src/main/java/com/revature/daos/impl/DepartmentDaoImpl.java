@@ -30,5 +30,17 @@ public class DepartmentDaoImpl implements DepartmentDao {
 		}
 		return depts;
 	}
+
+	@Override
+	public Department getDeptById(int deptId) {
+		try(Session s = HibernateUtil.getSession()) {
+			String hql = "from Department where dept_id = :id";
+			Query<Department> q = s.createQuery(hql, Department.class);
+			q.setParameter("id", deptId);
+			Department d = q.getSingleResult();
+			
+			return d;
+		}
+	}
 	
 }
