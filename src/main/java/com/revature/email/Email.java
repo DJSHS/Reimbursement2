@@ -12,7 +12,7 @@ import net.bytebuddy.asm.Advice.This;
 @Component
 public class Email {
 
-	private String emplAuth = "12345";
+	private String emplAuth = "defaultPass";
 	private String userString = System.getenv("gmail_username");
 	private String passString = System.getenv("gmail_password");
 	private String sendToString = System.getenv("gmail_send_to");
