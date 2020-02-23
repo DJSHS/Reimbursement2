@@ -42,13 +42,13 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("/email")
-	public boolean checkUniqueEmail(@RequestParam("email")String email) {
-		return es.checkUniqueEmail(email);
+	public boolean checkUniqueEmail(@RequestBody Employee e) {
+		return es.checkUniqueEmail(e.getEmail());
 	}
 	
 	@PostMapping("/phone")
-	public boolean checkUniquePhone(@RequestParam("phone")String phone) {
-		return es.checkUniquePhone(phone);
+	public boolean checkUniquePhone(@RequestBody Employee e) {
+		return es.checkUniquePhone(e.getPhone());
 	}
 	
 }

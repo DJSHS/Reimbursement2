@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.daos.impl.EmployeeDaoImpl;
+import com.revature.email.Email;
 import com.revature.models.Employee;
 
 
@@ -14,6 +15,9 @@ public class EmployeeService {
 	
 	@Autowired
 	private EmployeeDaoImpl em;
+	
+	@Autowired
+	private Email email;
 	
 	public List<Employee> getAllEmployees() {
 		return em.getAllEmpls();
@@ -24,7 +28,13 @@ public class EmployeeService {
 	}
 	
 	public int createEmployee(Employee e) {
-		return em.createEmpl(e);
+		int created = em.createEmpl(e);
+		if (created > 0) {
+			email.setEmplAuth(e.getPassword());
+			email.sendEmail();
+		}
+		
+		return created;
 	}
 	
 	public void updateEmployee(Employee e) {
