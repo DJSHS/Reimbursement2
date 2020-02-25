@@ -28,9 +28,6 @@ public class Employee implements Serializable {
 	
 	private String phone;
 	
-	@Column(nullable=true)
-	private String image;
-	
 	@Column(name="manager_id", nullable=true)
 	private int managerId;
 	
@@ -54,7 +51,6 @@ public class Employee implements Serializable {
 		this.email = email;
 		this.password = password;
 		this.phone = phone;
-		this.image = image;
 		this.managerId = managerId;
 		this.isManager = isManager;
 		this.deptId = deptId;
@@ -115,14 +111,6 @@ public class Employee implements Serializable {
 		this.phone = phone;
 	}
 
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
 	public int getManagerId() {
 		return managerId;
 	}
@@ -163,7 +151,6 @@ public class Employee implements Serializable {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + emplId;
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-		result = prime * result + ((image == null) ? 0 : image.hashCode());
 		result = prime * result + isManager;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + managerId;
@@ -196,11 +183,6 @@ public class Employee implements Serializable {
 				return false;
 		} else if (!firstName.equals(other.firstName))
 			return false;
-		if (image == null) {
-			if (other.image != null)
-				return false;
-		} else if (!image.equals(other.image))
-			return false;
 		if (isManager != other.isManager)
 			return false;
 		if (lastName == null) {
@@ -231,8 +213,8 @@ public class Employee implements Serializable {
 	@Override
 	public String toString() {
 		return "Employee [emplId=" + emplId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", phone=" + phone + ", image=" + image + ", managerId=" + managerId
-				+ ", isManager=" + isManager + ", deptId=" + deptId + ", position=" + position + "]";
+				+ ", password=" + password + ", phone=" + phone + ", managerId=" + managerId + ", isManager="
+				+ isManager + ", deptId=" + deptId + ", position=" + position + "]";
 	}
 	
 }

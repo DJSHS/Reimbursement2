@@ -40,7 +40,6 @@ public class Email {
         });
 
         try {
-        	System.out.println(userString);
         	MimeMessage message = new MimeMessage(session);  
             message.setFrom(new InternetAddress(userString)); 
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(sendToString));
