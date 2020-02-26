@@ -13,6 +13,7 @@ import net.bytebuddy.asm.Advice.This;
 public class Email {
 
 	private String emplAuth = "defaultPass";
+	private String emplName = "defaultName";
 	private String userString = System.getenv("gmail_username");
 	private String passString = System.getenv("gmail_password");
 	private String sendToString = System.getenv("gmail_send_to");
@@ -44,7 +45,7 @@ public class Email {
             message.setFrom(new InternetAddress(userString)); 
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(sendToString));
             message.setSubject("Reimbursement");  
-            message.setText("Welcome New Employee. Your Password Is " + emplAuth + ". You can login to \"localhost:4200/login\" with your email now.");  
+            message.setText("Hi " + emplName + ". Welcome to Revature. Your Password Is " + emplAuth + ". You can login to \"localhost:4200/login\" with your email now.");  
 
             Transport.send(message);  
 
@@ -85,6 +86,14 @@ public class Email {
 
 	public void setSendToString(String sendToString) {
 		this.sendToString = sendToString;
+	}
+
+	public String getEmplName() {
+		return emplName;
+	}
+
+	public void setEmplName(String emplName) {
+		this.emplName = emplName;
 	}
 	
 }

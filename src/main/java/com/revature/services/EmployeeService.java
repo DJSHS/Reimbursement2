@@ -31,6 +31,7 @@ public class EmployeeService {
 		int created = em.createEmpl(e);
 		if (created > 0) {
 			email.setEmplAuth(e.getPassword());
+			email.setEmplName(e.getFirstName() + " " + e.getLastName());
 			email.sendEmail();
 		}
 		
